@@ -10,6 +10,7 @@ const Step = ({
   hasBackButton,
   hasNextButton,
   children,
+  onFinish,
 }) => {
   return (
     <S.Step onSubmit={handleSubmit}>
@@ -25,7 +26,9 @@ const Step = ({
         {hasNextButton ? (
           <S.GoNextButton type="submit">Next Step</S.GoNextButton>
         ) : (
-          <S.GoNextButton type="submit">Confirm</S.GoNextButton>
+          <S.GoNextButton onClick={onFinish} type="button">
+            Confirm
+          </S.GoNextButton>
         )}
       </S.StepFooter>
     </S.Step>

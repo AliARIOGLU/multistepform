@@ -5,6 +5,7 @@ import Step1 from "../step-1";
 import Step2 from "../step-2";
 import Step3 from "../step-3";
 import Step4 from "../step-4";
+import Step5 from "../step-5";
 
 import * as S from "./styled";
 
@@ -35,6 +36,12 @@ const Steps = {
     subtitle: "Double-check eveything looks OK before confirming.",
     hasBackButton: true,
   },
+  step5: {
+    component: Step5,
+    title: "Thank you!",
+    subtitle:
+      "Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com.",
+  },
 };
 
 const MultiStepForm = () => {
@@ -59,6 +66,10 @@ const MultiStepForm = () => {
     setActiveStep(`step${currentStepNumber - 1}`);
   };
 
+  const onFinish = () => {
+    setActiveStep("step5");
+  };
+
   return (
     <S.MultiStepForm>
       <Sidebar activeStep={activeStep} />
@@ -67,6 +78,7 @@ const MultiStepForm = () => {
         onStepSubmit={handleStepSubmit}
         formData={formData}
         onBack={handleBack}
+        onFinish={onFinish}
       />
     </S.MultiStepForm>
   );
