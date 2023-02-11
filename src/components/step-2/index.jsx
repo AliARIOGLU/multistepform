@@ -34,7 +34,6 @@ const Step2 = ({ onStepSubmit, formData, ...props }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // Validation rules will be here
 
     if (!plan) {
       setError(true);
@@ -45,6 +44,10 @@ const Step2 = ({ onStepSubmit, formData, ...props }) => {
         plan,
       });
     }
+  };
+
+  const handleCheck = (e) => {
+    e.target.checked ? changeBillingType(MONTHLY) : changeBillingType(YEARLY);
   };
 
   return (
@@ -68,7 +71,7 @@ const Step2 = ({ onStepSubmit, formData, ...props }) => {
             </S.RadioLabel>
           ))}
         </S.RadioGroup>
-        <S.BillingGroup>
+        {/* <S.BillingGroup>
           <S.BillingButton
             type="button"
             onClick={() => changeBillingType(MONTHLY)}
@@ -83,7 +86,21 @@ const Step2 = ({ onStepSubmit, formData, ...props }) => {
           >
             Yearly
           </S.BillingButton>
-        </S.BillingGroup>
+        </S.BillingGroup> */}
+        <S.BillingArea>
+          <S.BillingText isChecked={billingType === MONTHLY}>
+            {MONTHLY}
+          </S.BillingText>
+          <S.BillingLabel>
+            <S.InputCheck onChange={handleCheck} type="checkbox" />
+            <S.Checkbox>
+              <S.CheckButton isChecked={billingType === YEARLY}></S.CheckButton>
+            </S.Checkbox>
+          </S.BillingLabel>
+          <S.BillingText isChecked={billingType === YEARLY}>
+            {YEARLY}
+          </S.BillingText>
+        </S.BillingArea>
       </S.Step2>
     </Step>
   );

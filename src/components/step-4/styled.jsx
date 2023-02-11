@@ -14,6 +14,9 @@ export const Step4 = styled.div`
 
 export const Title = styled.h4`
   color: var(--cool-gray);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;
 
 export const MainRow = styled.div`
@@ -44,4 +47,11 @@ export const TotalAmount = styled.h3`
   color: var(--purplish-blue);
   font-size: 18px;
   font-weight: 700;
+`;
+
+export const ChangeBill = styled.span`
+  color: gray;
+  text-decoration: underline;
+  font-size: 14px;
+  cursor: pointer;
 `;

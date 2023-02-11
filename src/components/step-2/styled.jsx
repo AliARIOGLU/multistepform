@@ -83,3 +83,61 @@ export const ErrorMessage = styled.p`
   color: red;
   font-weight: bold;
 `;
+
+export const BillingArea = styled.div`
+  width: 100%;
+  background-color: var(--alabaster);
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  gap: 20px;
+`;
+
+export const InputCheck = styled.input`
+  display: none;
+`;
+
+export const Checkbox = styled.div`
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  background-color: var(--marine-blue);
+  border-radius: 40px;
+  position: relative;
+  cursor: pointer;
+`;
+
+export const CheckButton = styled.span`
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: 4px;
+  left: 5px;
+  transition: 500ms left;
+
+  ${({ isChecked }) =>
+    isChecked &&
+    css`
+      left: 25px;
+    `}
+`;
+
+export const BillingLabel = styled.label``;
+
+export const BillingText = styled.p`
+  text-transform: capitalize;
+  color: var(--marine-blue);
+  font-weight: bold;
+  font-size: 14px;
+
+  ${({ isChecked }) =>
+    !isChecked &&
+    css`
+      color: gray;
+      opacity: 0.6;
+    `}
+`;
