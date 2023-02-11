@@ -10,10 +10,13 @@ import {
   DEFAULT_BILLING_TYPE,
   MONTHLY,
   YEARLY,
+  errorMessage,
 } from "./constants.js";
 
 const Step2 = ({ onStepSubmit, formData, ...props }) => {
-  const [plan, setPlan] = useState(formData.step2.plan ?? DEFAULT_PLAN);
+  const [plan, setPlan] = useState(formData.step2.plan);
+
+  const [error, setError] = useState(false);
 
   const [billingType, setBillingType] = useState(
     formData.step2.billingType ?? DEFAULT_BILLING_TYPE
@@ -29,21 +32,28 @@ const Step2 = ({ onStepSubmit, formData, ...props }) => {
     setBillingType(newBillingType);
   };
 
-  const onSubmit = () => {
+  const onSubmit = (e) => {
+    e.preventDefault();
     // Validation rules will be here
 
-    onStepSubmit("step2", "step3", {
-      billingType,
-      plan,
-    });
+    if (!plan) {
+      setError(true);
+    } else {
+      setError(false);
+      onStepSubmit("step2", "step3", {
+        billingType,
+        plan,
+      });
+    }
   };
 
   return (
     <Step {...props} handleSubmit={onSubmit}>
       <S.Step2>
+        {error && <S.ErrorMessage>{errorMessage}</S.ErrorMessage>}
         <S.RadioGroup>
           {step2[billingType].map((item) => (
-            <S.RadioLabel key={item.id} isSelected={item.id === plan.id}>
+            <S.RadioLabel key={item.id} isSelected={item.id === plan?.id}>
               <S.RadioInput
                 name="plan-type"
                 type="radio"

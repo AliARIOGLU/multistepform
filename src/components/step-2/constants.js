@@ -12,3 +12,4 @@ export const DEFAULT_PLAN = 1;
 export const DEFAULT_BILLING_TYPE = "monthly";
 export const MONTHLY = "monthly";
 export const YEARLY = "yearly";
+export const errorMessage = "Please choice one option!";

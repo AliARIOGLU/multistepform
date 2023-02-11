@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Step from "../step";
 import * as S from "./styled";
@@ -6,7 +6,8 @@ import FormsJSON from "../../../form.json";
 
 const Step1 = ({ onStepSubmit, formData, ...props }) => {
   const { step1 } = FormsJSON;
-  const hasError = false;
+
+  const [error, setError] = useState(false);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -16,14 +17,20 @@ const Step1 = ({ onStepSubmit, formData, ...props }) => {
 
     //VALIDATION RULES BURADA OLMALI (YAZ)
 
-    onStepSubmit("step1", "step2", fromProperties);
+    if (
+      Object.keys(fromProperties).some((el) => fromProperties[`${el}`] === "")
+    ) {
+      setError(true);
+    } else {
+      onStepSubmit("step1", "step2", fromProperties);
+    }
   };
 
   return (
     <Step {...props} handleSubmit={onSubmit}>
       <S.Step1>
         {step1.map((item) => (
-          <S.FormItem key={item.id} hasError={hasError}>
+          <S.FormItem key={item.id} hasError={error}>
             <S.Label htmlFor={item.id}>{item.label}</S.Label>
             <S.Input
               defaultValue={formData.step1[item.id]}
@@ -32,9 +39,7 @@ const Step1 = ({ onStepSubmit, formData, ...props }) => {
               type={item.type}
               placeholder={item.placeholder}
             />
-            {hasError && (
-              <S.ErrorMessage>This field is required!</S.ErrorMessage>
-            )}
+            {error && <S.ErrorMessage>{item.errorMessage}</S.ErrorMessage>}
           </S.FormItem>
         ))}
       </S.Step1>

@@ -4,19 +4,22 @@
       "id": "name",
       "label": "Name",
       "type": "text",
-      "placeholder": "Enter your name"
+      "placeholder": "Enter your name",
+      "errorMessage": "This field is required"
     },
     {
       "id": "email-address",
       "label": "Email Address",
       "type": "mail",
-      "placeholder": "e.g. stephenking@lorem.com"
+      "placeholder": "e.g. stephenking@lorem.com",
+      "errorMessage": "This field is required"
     },
     {
       "id": "phone-number",
       "label": "Phone Number",
       "type": "tel",
-      "placeholder": "e.g. +1 234 567 890"
+      "placeholder": "e.g. +1 234 567 890",
+      "errorMessage": "This field is required"
     }
   ],
   "step2": {

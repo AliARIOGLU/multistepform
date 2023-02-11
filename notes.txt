@@ -1,5 +1,5 @@
 MultiStepForm compde edilen import * as S -> örneği güzel hem çirkin durmuyor hepsini import etmemizin aksine hem de
-başına S. konulan elementlerin styled olduğunu ayır edebiliyoruz jsx kısmında
+başına S. konulan elementlerin styled olduğunu ayırt edebiliyoruz jsx kısmında
 
 Sidebar da background image verirken ../.. dersek bu gider public altında
 arar o yüzden import ettik svgyi

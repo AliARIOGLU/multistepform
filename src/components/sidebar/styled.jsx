@@ -12,7 +12,7 @@ export const Sidebar = styled.div`
   background-size: cover;
   color: var(--white);
   padding: 24px;
-  width: 20%;
+  width: 25%;
   border-radius: 8px;
 `;
 

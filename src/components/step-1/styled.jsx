@@ -41,6 +41,7 @@ export const FormItem = styled.div`
 
 export const Label = styled.label`
   font-size: 14px;
+  font-weight: bold;
 `;
 
 export const ErrorMessage = styled.p`
@@ -49,4 +50,5 @@ export const ErrorMessage = styled.p`
   right: 0;
   color: var(--strawberry-red);
   font-size: 14px;
+  font-weight: bold;
 `;

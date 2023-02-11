@@ -10,6 +10,7 @@ export const RadioGroup = styled.div`
   width: 100%;
   display: flex;
   gap: 12px;
+  height: 170px;
 `;
 
 export const RadioLabel = styled.label`
@@ -74,4 +75,11 @@ export const BillingButton = styled.button`
       background-color: var(--alabaster);
       border-color: var(--purplish-blue);
     `}
+`;
+
+export const ErrorMessage = styled.p`
+  margin-left: auto;
+  margin-right: auto;
+  color: red;
+  font-weight: bold;
 `;
