@@ -32,18 +32,27 @@ function Step4({ formData, ...props }) {
       )
     );
 
+    const currPrice =
+      plan.priceAmount > 10
+        ? Number(plan.price.slice(1, 3))
+        : Number(plan.price.slice(1, 2));
+    const currAmount =
+      plan.priceAmount > 10
+        ? Number(String(plan.priceAmount).slice(0, 2))
+        : Number(String(plan.priceAmount).slice(0, 1));
+
     setUpdatedPlan({
-      ...plan,
+      ...updatedPlan,
       price:
         updatedBillingType === "yearly"
-          ? `$${plan.priceAmount}/mo`
-          : `$${plan.priceAmount * 10}/yr`,
+          ? `$${currPrice}/mo`
+          : `$${currPrice * 10}/yr`,
       priceAmount:
-        updatedBillingType === "yearly"
-          ? plan.priceAmount
-          : plan.priceAmount * 10,
+        updatedBillingType === "yearly" ? currAmount : currAmount * 10,
     });
   };
+
+  console.log(updatedPlan);
 
   return (
     <Step {...props}>

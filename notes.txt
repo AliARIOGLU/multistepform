@@ -29,3 +29,26 @@ geliyor 1 yazmak yerine default_plan diye adlandırıyoruz ki daha sonra koda
 baktığmızda anlayalım
 
 Data'yı collect etme yani bir stepteki datayı(formData) diğerlerine aktarma işlemini Step bir form olduğu için bunun submit özelliğiyle yapacağız.
+
+
+
+
+
+// eski buton option
+
+{/* <S.BillingGroup>
+          <S.BillingButton
+            type="button"
+            onClick={() => changeBillingType(MONTHLY)}
+            isSelected={billingType === MONTHLY}
+          >
+            Monthly
+          </S.BillingButton>
+          <S.BillingButton
+            type="button"
+            onClick={() => changeBillingType(YEARLY)}
+            isSelected={billingType === YEARLY}
+          >
+            Yearly
+          </S.BillingButton>
+        </S.BillingGroup> */}

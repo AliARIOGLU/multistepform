@@ -26,10 +26,12 @@ const Step2 = ({ onStepSubmit, formData, ...props }) => {
 
   const changePlan = (newPlan) => {
     setPlan(newPlan);
+    console.log("newplan", newPlan);
   };
 
   const changeBillingType = (newBillingType) => {
     setBillingType(newBillingType);
+    changePlan();
   };
 
   const onSubmit = (e) => {
@@ -49,6 +51,8 @@ const Step2 = ({ onStepSubmit, formData, ...props }) => {
   const handleCheck = (e) => {
     e.target.checked ? changeBillingType(MONTHLY) : changeBillingType(YEARLY);
   };
+
+  // console.log("step2", formData);
 
   return (
     <Step {...props} handleSubmit={onSubmit}>
@@ -71,22 +75,6 @@ const Step2 = ({ onStepSubmit, formData, ...props }) => {
             </S.RadioLabel>
           ))}
         </S.RadioGroup>
-        {/* <S.BillingGroup>
-          <S.BillingButton
-            type="button"
-            onClick={() => changeBillingType(MONTHLY)}
-            isSelected={billingType === MONTHLY}
-          >
-            Monthly
-          </S.BillingButton>
-          <S.BillingButton
-            type="button"
-            onClick={() => changeBillingType(YEARLY)}
-            isSelected={billingType === YEARLY}
-          >
-            Yearly
-          </S.BillingButton>
-        </S.BillingGroup> */}
         <S.BillingArea>
           <S.BillingText isChecked={billingType === MONTHLY}>
             {MONTHLY}
